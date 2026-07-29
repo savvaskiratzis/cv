@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Savvas Kiratzis — Systems Engineer CV</title>
+    <title>Savvas Kiratzis — Systems Engineer</title>
     <meta name="description" content="Savvas Kiratzis — Systems Engineer CV. Infrastructure, Cloud & Virtualization." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+<div class="bg-anim"></div>
+
 <div class="page">
 
-    <!-- ═══ HEADER ═══ -->
+    <!-- HEADER -->
     <header>
-        <div class="header-top">
-            <h1 class="name">Savvas <span class="accent">Kiratzis</span></h1>
-            <p class="role">Systems Engineer</p>
-        </div>
-        <div class="header-contact">
+        <h1 class="name">Savvas <span class="hl">Kiratzis</span></h1>
+        <p class="role">Systems Engineer</p>
+        <div class="contact-bar">
             <span><i class="fas fa-map-marker-alt"></i> Glyfada, Greece</span>
             <span><i class="fas fa-phone-alt"></i> <a href="tel:+306989169303">+30 698 916 9303</a></span>
             <span><i class="fas fa-envelope"></i> <a href="mailto:savvaskiratzis@gmail.com">savvaskiratzis@gmail.com</a></span>
@@ -30,218 +30,160 @@
         </div>
     </header>
 
-    <!-- ═══ GRID ═══ -->
+    <!-- GRID -->
     <div class="grid">
 
-        <!-- ═══ LEFT COLUMN ═══ -->
+        <!-- LEFT -->
         <div class="col-left">
 
-            <!-- Profile -->
             <section class="card">
-                <h2 class="section-title"><i class="fas fa-user"></i> About</h2>
+                <h2 class="sec-title"><i class="fas fa-user"></i> About</h2>
                 <p class="body-text">
-                    Results-driven Systems Engineer with <strong>6+ years</strong> of experience in virtualization, cloud infrastructure (M365, Azure), hybrid architectures, and data center operations. Proven track record delivering high-availability environments, zero-downtime migrations, and enterprise-grade backup solutions.
+                    Results-driven <strong>Systems Engineer</strong> with 6+ years in virtualization, cloud infrastructure (M365, Azure), hybrid architectures, and data center operations. Proven track record in high-availability environments, zero-downtime migrations, and enterprise backup solutions.
                 </p>
             </section>
 
-            <!-- Skills -->
             <section class="card">
-                <h2 class="section-title"><i class="fas fa-code"></i> Core Skills</h2>
-                <div class="skill-cat">
-                    <h3>Virtualization</h3>
-                    <div class="tags">
-                        <span>vSphere</span><span>Hyper-V</span><span>Proxmox VE</span><span>XCP-ng</span>
-                    </div>
-                </div>
-                <div class="skill-cat">
-                    <h3>Cloud &amp; ID</h3>
-                    <div class="tags">
-                        <span>M365</span><span>Entra ID</span><span>Exchange Online</span><span>SharePoint</span><span>Azure</span>
-                    </div>
-                </div>
-                <div class="skill-cat">
-                    <h3>Monitoring &amp; SIEM</h3>
-                    <div class="tags">
-                        <span>Zabbix</span><span>Grafana</span><span>Wazuh</span>
-                    </div>
-                </div>
-                <div class="skill-cat">
-                    <h3>Backup &amp; DR</h3>
-                    <div class="tags">
-                        <span>Veeam</span><span>Acronis</span><span>Nakivo</span><span>Corso</span>
-                    </div>
-                </div>
-                <div class="skill-cat">
-                    <h3>Other</h3>
-                    <div class="tags">
-                        <span>Citrix DaaS</span><span>Windows RDS</span><span>Data Center Ops</span><span>AD / Azure AD</span>
-                    </div>
-                </div>
+                <h2 class="sec-title"><i class="fas fa-code"></i> Core Skills</h2>
+                <div class="sk-group"><h3>Virtualization</h3><div class="tags"><span>vSphere</span><span>Hyper-V</span><span>Proxmox VE</span><span>XCP-ng</span></div></div>
+                <div class="sk-group"><h3>Cloud &amp; Identity</h3><div class="tags"><span>M365</span><span>Entra ID</span><span>Exchange Online</span><span>SharePoint</span><span>Azure</span></div></div>
+                <div class="sk-group"><h3>Monitoring &amp; SIEM</h3><div class="tags"><span>Zabbix</span><span>Grafana</span><span>Wazuh</span></div></div>
+                <div class="sk-group"><h3>Backup &amp; DR</h3><div class="tags"><span>Veeam</span><span>Acronis</span><span>Nakivo</span><span>Corso</span></div></div>
+                <div class="sk-group"><h3>Other</h3><div class="tags"><span>Citrix DaaS</span><span>Windows RDS</span><span>Data Center Ops</span><span>AD Sync</span></div></div>
             </section>
 
-            <!-- Certifications -->
             <section class="card">
-                <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications</h2>
+                <h2 class="sec-title"><i class="fas fa-certificate"></i> Certifications</h2>
                 <ul class="cert-list">
-                    <li><i class="fab fa-microsoft"></i> Azure Administrator Associate (AZ-104)</li>
-                    <li><i class="fas fa-server"></i> Dell PowerEdge Operate v2.0 (D-PE-OE-01)</li>
-                    <li><i class="fas fa-cogs"></i> ITIL® Foundation Certificate</li>
-                    <li><i class="fas fa-cloud"></i> Citrix CCA – Virtualization (CCA-V)</li>
-                    <li><i class="fas fa-code"></i> Web &amp; App Design Specialist</li>
+                    <li><i class="fab fa-microsoft"></i> Azure Administrator (AZ-104)</li>
+                    <li><i class="fas fa-server"></i> Dell PowerEdge (D-PE-OE-01)</li>
+                    <li><i class="fas fa-cogs"></i> ITIL® Foundation</li>
+                    <li><i class="fas fa-cloud"></i> Citrix CCA – Virtualization</li>
+                    <li><i class="fas fa-code"></i> Web &amp; App Specialist</li>
                 </ul>
             </section>
 
-            <!-- Education -->
             <section class="card">
-                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                <h2 class="sec-title"><i class="fas fa-graduation-cap"></i> Education</h2>
                 <div class="edu-item">
-                    <h3>Informatics &amp; Telecommunications Engineering</h3>
-                    <p class="edu-meta">University of Western Macedonia · 2021</p>
-                    <p class="edu-note">Equivalent to Master's · Grade: Very Good (6.83)</p>
+                    <h3>Informatics &amp; Telecomms Engineering</h3>
+                    <p class="meta">University of Western Macedonia · 2021</p>
+                    <p class="note">equiv. Master's · Grade: 6.83/10</p>
                 </div>
                 <div class="edu-item">
-                    <h3>High School Graduation</h3>
-                    <p class="edu-meta">High School of Schimatari · 2009</p>
-                    <p class="edu-note">Grade: 18/20</p>
+                    <h3>High School</h3>
+                    <p class="meta">Schimatari High School · 2009</p>
+                    <p class="note">Grade: 18/20</p>
                 </div>
             </section>
 
-            <!-- Languages & Info -->
             <section class="card">
-                <h2 class="section-title"><i class="fas fa-globe"></i> Additional Info</h2>
+                <h2 class="sec-title"><i class="fas fa-globe"></i> Details</h2>
                 <ul class="info-list">
-                    <li><span>Languages</span> <span>Greek (native) · English (B2)</span></li>
-                    <li><span>Birth</span> <span>12 Oct 1991</span></li>
-                    <li><span>Licenses</span> <span>AM · A · B</span></li>
-                    <li><span>Military</span> <span>Fulfilled</span></li>
+                    <li><span>Languages</span><span>Greek (native) · English (B2)</span></li>
+                    <li><span>Birth</span><span>12 Oct 1991</span></li>
+                    <li><span>Licenses</span><span>AM · A · B</span></li>
+                    <li><span>Military</span><span>Fulfilled</span></li>
+                    <li><span>Volunteer</span><span>Municipality events · Seaside Race 2016–18</span></li>
                 </ul>
             </section>
 
         </div>
 
-        <!-- ═══ RIGHT COLUMN ═══ -->
+        <!-- RIGHT -->
         <div class="col-right">
 
-            <!-- Experience -->
             <section class="card">
-                <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+                <h2 class="sec-title"><i class="fas fa-briefcase"></i> Experience</h2>
 
                 <div class="exp-item">
                     <div class="exp-head">
-                        <div>
-                            <h3>Systems Engineer</h3>
-                            <p class="exp-meta">Space Hellas · Ag. Paraskevi</p>
-                        </div>
+                        <div><h3>Systems Engineer</h3><p class="meta">Space Hellas — Ag. Paraskevi</p></div>
                         <span class="exp-date">Mar 2025 – Present</span>
                     </div>
-                    <ul class="exp-duties">
+                    <ul class="duties">
                         <li>vSphere, Hyper-V, Proxmox VE administration &amp; deployment</li>
                         <li>On-prem ↔ cloud &amp; cloud-to-cloud migrations</li>
                         <li>M365 Global Admin (Exchange, SharePoint, Teams, Entra ID)</li>
-                        <li>Data center operations &amp; backup (Veeam, Acronis, Nakivo, Corso)</li>
+                        <li>Data center ops &amp; backup (Veeam, Acronis, Nakivo, Corso)</li>
                     </ul>
                 </div>
 
                 <div class="exp-item">
                     <div class="exp-head">
-                        <div>
-                            <h3>Systems Engineer</h3>
-                            <p class="exp-meta">Fermorite · Argyroupoli</p>
-                        </div>
+                        <div><h3>Systems Engineer</h3><p class="meta">Fermorite — Argyroupoli</p></div>
                         <span class="exp-date">Jul 2022 – Nov 2024</span>
                     </div>
-                    <ul class="exp-duties">
-                        <li>Hyper-V, Proxmox VE, XCP-ng administration &amp; deployment</li>
+                    <ul class="duties">
+                        <li>Hyper-V, Proxmox VE, XCP-ng administration</li>
                         <li>M365 Global Admin &amp; hybrid cloud migrations</li>
                         <li>Citrix DaaS (Virtual Apps &amp; Desktops)</li>
-                        <li>Monitoring (Zabbix, Grafana) / SIEM (Wazuh)</li>
+                        <li>Zabbix, Grafana, Wazuh (SIEM)</li>
                     </ul>
                 </div>
 
                 <div class="exp-item">
                     <div class="exp-head">
-                        <div>
-                            <h3>IT Service Desk Engineer</h3>
-                            <p class="exp-meta">OTE Group (HTO) · Marousi</p>
-                        </div>
+                        <div><h3>IT Service Desk Engineer</h3><p class="meta">OTE Group (HTO) — Marousi</p></div>
                         <span class="exp-date">Sep 2020 – Jun 2022</span>
                     </div>
-                    <ul class="exp-duties">
-                        <li>Systems management &amp; monitoring @ T-Mobile Netherlands</li>
-                        <li>Incident management for 15+ enterprise projects</li>
-                        <li>2nd Level M365 support (CSP) · AD → Azure AD migration</li>
+                    <ul class="duties">
+                        <li>Systems mgmt &amp; monitoring @ T-Mobile Netherlands</li>
+                        <li>Incident mgmt for 15+ enterprise projects</li>
+                        <li>2nd Level M365 support · AD → Azure AD migration</li>
                     </ul>
                 </div>
 
                 <div class="exp-item">
                     <div class="exp-head">
-                        <div>
-                            <h3>Programmer – Analyst</h3>
-                            <p class="exp-meta">Ministry of Defence · Holargos</p>
-                        </div>
+                        <div><h3>Programmer – Analyst</h3><p class="meta">Ministry of Defence — Holargos</p></div>
                         <span class="exp-date">Oct 2019 – Jul 2020</span>
                     </div>
-                    <ul class="exp-duties">
-                        <li>IT Helpdesk &amp; departmental application support</li>
-                    </ul>
+                    <ul class="duties"><li>IT Helpdesk &amp; application support</li></ul>
                 </div>
 
                 <div class="exp-item">
                     <div class="exp-head">
-                        <div>
-                            <h3>Help Desk Engineer</h3>
-                            <p class="exp-meta">Municipality of Oropos</p>
-                        </div>
+                        <div><h3>Help Desk Engineer</h3><p class="meta">Municipality of Oropos</p></div>
                         <span class="exp-date">Oct 2015 – Aug 2019</span>
                     </div>
-                    <ul class="exp-duties">
-                        <li>IT support · Accounting application administration</li>
-                        <li>Digital marketing &amp; social media</li>
-                    </ul>
+                    <ul class="duties"><li>IT support · Accounting apps · Digital marketing</li></ul>
                 </div>
 
                 <div class="exp-item">
                     <div class="exp-head">
-                        <div>
-                            <h3>Network Engineer (Intern)</h3>
-                            <p class="exp-meta">OTE Group (HTO) · Kozani</p>
-                        </div>
+                        <div><h3>Network Engineer (Intern)</h3><p class="meta">OTE Group — Kozani</p></div>
                         <span class="exp-date">Oct – Dec 2014</span>
                     </div>
-                    <ul class="exp-duties">
-                        <li>Field wiring &amp; central distributor</li>
-                        <li>Digital TV signal transition (DIGEA S.A.)</li>
-                    </ul>
+                    <ul class="duties"><li>Field wiring · Digital TV transition (DIGEA)</li></ul>
                 </div>
 
             </section>
 
-            <!-- Awards & Seminars -->
             <section class="card">
-                <h2 class="section-title"><i class="fas fa-trophy"></i> Awards &amp; Seminars</h2>
-                <div class="award-grid">
+                <h2 class="sec-title"><i class="fas fa-trophy"></i> Awards &amp; Seminars</h2>
+                <div class="two-col">
                     <div>
-                        <h3 class="sub-title"><i class="fas fa-star"></i> Award</h3>
-                        <p class="award-text"><strong>e-Twinning Program</strong> — First National Award for <em>"Antiqua Aqua" (Water Networks)</em></p>
+                        <h3 class="sub-t"><i class="fas fa-star"></i> Award</h3>
+                        <p class="award-text"><strong>e-Twinning</strong> — First National Award<br/><em>"Antiqua Aqua"</em></p>
+                        <h3 class="sub-t" style="margin-top:14px"><i class="fas fa-book"></i> Courses</h3>
+                        <ul class="dot-list"><li>ITIL4 Foundation</li><li>MOS 2019</li><li>All Digital Summit</li></ul>
                     </div>
                     <div>
-                        <h3 class="sub-title"><i class="fas fa-flask"></i> Seminars</h3>
-                        <ul class="semi-list">
-                            <li>MATLAB Presentation – UoWM</li>
-                            <li>Joomla e-shops – UoWM</li>
-                            <li>Android &amp; Mobile Security – UoWM</li>
-                            <li>Security: Admin's Perspective – UoWM</li>
-                            <li>Energy Measurements – UoWM</li>
-                            <li>ECESCON 4 – Univ. of Patras</li>
+                        <h3 class="sub-t"><i class="fas fa-flask"></i> Seminars</h3>
+                        <ul class="dot-list">
+                            <li>MATLAB Presentation – UoWM</li><li>Joomla e-shops – UoWM</li>
+                            <li>Android &amp; Mobile Security – UoWM</li><li>Security: Admin's Perspective – UoWM</li>
+                            <li>Energy Measurements – UoWM</li><li>ECESCON 4 – Patras</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- Footer note -->
-            <div class="card card-note">
-                <p><i class="fas fa-file-alt"></i> Recommendation letters available upon request</p>
-                <p><a href="#" onclick="window.print();return false"><i class="fas fa-print"></i> Save as PDF</a> · <a href="https://github.com/savvaskiratzis/cv" target="_blank"><i class="fab fa-github"></i> Source</a></p>
+            <div class="footer-note">
+                <span><i class="fas fa-file-alt"></i> Rec. letters on request</span>
+                <span><a href="#" onclick="window.print();return false"><i class="fas fa-print"></i> PDF</a></span>
+                <span><a href="https://github.com/savvaskiratzis/cv" target="_blank"><i class="fab fa-github"></i> Source</a></span>
             </div>
 
         </div>
@@ -250,7 +192,7 @@
 </div>
 
 <script>
-// ── Smooth scroll reveal ──
+// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
         if (e.isIntersecting) {
@@ -259,12 +201,12 @@ const observer = new IntersectionObserver((entries) => {
             observer.unobserve(e.target);
         }
     });
-}, { threshold: 0.08 });
+}, { threshold: 0.06 });
 
 document.querySelectorAll('.card').forEach((el, i) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = `opacity 0.5s ease ${i * 0.06}s, transform 0.5s ease ${i * 0.06}s`;
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = `opacity 0.5s ease ${i * 0.05}s, transform 0.5s ease ${i * 0.05}s`;
     observer.observe(el);
 });
 </script>
