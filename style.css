@@ -160,6 +160,7 @@ header {
 .footer-note i { color: var(--accent); margin-right: 4px; }
 .footer-note a { color: var(--text-muted); }
 .footer-note a:hover { color: var(--accent); }
+.footer-note .footer-source { font-size: 0.82rem; }
 
 /* DOWNLOAD BUBBLE */
 .card-download {
