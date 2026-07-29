@@ -162,6 +162,23 @@ header {
 .footer-note a:hover { color: var(--accent); }
 .footer-note .footer-source { font-size: 0.82rem; }
 
+/* LIVE DOT */
+.live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    vertical-align: middle;
+    margin-right: 2px;
+    box-shadow: 0 0 6px rgba(74,222,128,0.6);
+    animation: livePulse 1.5s ease-in-out infinite;
+}
+@keyframes livePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
 /* DOWNLOAD BUBBLE */
 .card-download {
     padding: 0;
