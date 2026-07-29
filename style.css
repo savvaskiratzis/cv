@@ -170,7 +170,7 @@ header {
     border-radius: 50%;
     background: #4ade80;
     vertical-align: middle;
-    margin-right: 2px;
+    margin-left: 4px;
     box-shadow: 0 0 6px rgba(74,222,128,0.6);
     animation: livePulse 1.5s ease-in-out infinite;
 }
