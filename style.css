@@ -128,6 +128,7 @@ header {
 .edu-item:first-child { padding-top: 0; }
 .edu-item h3 { font-size: 0.82rem; font-weight: 600; }
 .meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 1px; }
+.edu-note { font-size: 0.72rem; color: var(--accent); font-weight: 500; margin-top: 2px; }
 
 /* INFO */
 .info-list { list-style: none; }
@@ -174,6 +175,7 @@ header {
     .hl { color: #1a56db; }
     .tags span { background: #f0f4ff; color: #1a56db; }
     .exp-date { background: #f0f4ff; color: #1a56db; }
+    .edu-note { color: #1a56db; }
     .sec-title { color: #1a56db; border-bottom-color: #e0e0e0; }
     .duties li::before, .dot-list li::before { color: #1a56db; }
     .exp-head h3 { color: #000; }
