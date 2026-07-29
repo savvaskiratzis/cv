@@ -84,6 +84,7 @@ header {
 .contact-bar i { color: var(--accent); width: 13px; font-size: 0.72rem; text-align: center; }
 .contact-bar a { color: var(--text); }
 .contact-bar a:hover { color: var(--accent); text-decoration: none; }
+.loc-white { color: var(--text); font-weight: 500; }
 
 /* ═══ GRID ═══ */
 .grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 18px; align-items: start; }
