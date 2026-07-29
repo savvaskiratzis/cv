@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Savvas Kiratzis — Systems Engineer</title>
-    <meta name="description" content="Savvas Kiratzis — Systems Engineer CV. Infrastructure, Cloud & Virtualization." />
+    <meta name="description" content="Savvas Kiratzis — Systems Engineer CV." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -13,7 +13,11 @@
 </head>
 <body>
 
-<canvas id="rack-canvas"></canvas>
+<!-- ═══ BACKGROUND RACK PATTERN (CSS) ═══ -->
+<div id="bg-racks"></div>
+
+<!-- ═══ OVERLAY LEDS (canvas for blinking lights) ═══ -->
+<canvas id="led-canvas"></canvas>
 
 <div class="page">
 
@@ -30,7 +34,6 @@
     </header>
 
     <div class="grid">
-
         <div class="col-left">
             <section class="card">
                 <h2 class="sec-title"><i class="fas fa-user"></i> About</h2>
@@ -69,7 +72,6 @@
                 </ul>
             </section>
         </div>
-
         <div class="col-right">
             <section class="card">
                 <h2 class="sec-title"><i class="fas fa-briefcase"></i> Experience</h2>
@@ -127,164 +129,65 @@
 </div>
 
 <script>
-// ═══ SERVER RACK CANVAS ═══
-const cav = document.getElementById('rack-canvas');
-const ctx2 = cav.getContext('2d');
-let W2, H2;
+// ═══ LED BLINKING OVERLAY (small canvas just for dots) ═══
+const lc = document.getElementById('led-canvas');
+const lctx = lc.getContext('2d');
 
-function resizeCanvas() {
-    W2 = cav.width = window.innerWidth;
-    H2 = cav.height = document.body.scrollHeight;
+function resizeLED() {
+    lc.width = window.innerWidth;
+    lc.height = document.body.scrollHeight;
 }
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+resizeLED();
+window.addEventListener('resize', resizeLED);
 
-const serverLeds = [];
-
-function makeRack(cx, cy, w, h, label) {
-    const uHeight = 24; // rack unit height
-    const units = Math.floor(h / uHeight);
-    const rack = { x: cx - w/2, y: cy - h/2, w, h, units, label, leds: [] };
-    for (let u = 0; u < units; u++) {
-        const uy = rack.y + u * uHeight;
-        // Each unit: border, maybe some LEDs
-        const ledCount = 2 + Math.floor(Math.random() * 4);
-        const leds = [];
+// Generate LEDs at fixed positions
+const leds = [];
+const cols = 3; // 3 rack columns
+for (let c = 0; c < cols; c++) {
+    const rackX = 40 + c * (window.innerWidth - 80) / (cols - 1);
+    const rackW = 50;
+    const unitH = 20;
+    for (let u = 0; u < 20; u++) {
+        const uy = 200 + u * unitH;
+        const ledCount = 1 + Math.floor(Math.random() * 3);
         for (let i = 0; i < ledCount; i++) {
             leds.push({
-                x: rack.x + 10 + Math.random() * (w - 40),
-                y: uy + uHeight/2,
-                r: 1.5 + Math.random() * 2,
+                x: rackX - rackW/2 + 10 + Math.random() * (rackW - 20),
+                y: uy + 8 + Math.random() * 8,
+                r: 1 + Math.random() * 1.5,
                 phase: Math.random() * Math.PI * 2,
-                speed: 0.5 + Math.random() * 2,
+                speed: 0.8 + Math.random() * 2.5,
                 color: ['#4ade80','#60a5fa','#fbbf24','#f472b6','#34d399'][Math.floor(Math.random() * 5)]
             });
-            serverLeds.push(leds[leds.length - 1]);
         }
-        rack.leds.push(leds);
     }
-    return rack;
 }
 
-const racks = [];
-// Place 3 racks evenly across the width
-const rackW = 80, rackH = 400;
-racks.push(makeRack(W2 * 0.08, document.body.scrollHeight * 0.3, rackW, rackH, 'RACK-01'));
-racks.push(makeRack(W2 * 0.15, document.body.scrollHeight * 0.55, rackW, rackH * 0.8, 'RACK-02'));
-racks.push(makeRack(W2 * 0.92, document.body.scrollHeight * 0.35, rackW, rackH * 1.1, 'RACK-03'));
-racks.push(makeRack(W2 * 0.85, document.body.scrollHeight * 0.65, rackW, rackH * 0.7, 'RACK-04'));
-
-function drawRacks() {
+function drawLEDs() {
     const now = Date.now() / 1000;
-
-    for (const rack of racks) {
-        const { x, y, w, h, label } = rack;
-
-        // Rack frame
-        ctx2.strokeStyle = 'rgba(99,143,255,0.12)';
-        ctx2.lineWidth = 1.5;
-        ctx2.strokeRect(x, y, w, h);
-
-        // Rack label
-        ctx2.fillStyle = 'rgba(99,143,255,0.1)';
-        ctx2.font = '6px Inter, sans-serif';
-        ctx2.fillText(label, x + 4, y - 4);
-
-        // Mounting rails
-        ctx2.strokeStyle = 'rgba(99,143,255,0.06)';
-        ctx2.lineWidth = 1;
-        ctx2.beginPath();
-        ctx2.moveTo(x + 10, y);
-        ctx2.lineTo(x + 10, y + h);
-        ctx2.moveTo(x + w - 10, y);
-        ctx2.lineTo(x + w - 10, y + h);
-        ctx2.stroke();
-
-        // Vertical vent lines on sides
-        for (let vy = y + 10; vy < y + h - 10; vy += 12) {
-            ctx2.strokeStyle = `rgba(99,143,255,0.03)`;
-            ctx2.lineWidth = 0.5;
-            ctx2.beginPath();
-            ctx2.moveTo(x + 4, vy);
-            ctx2.lineTo(x + 6, vy);
-            ctx2.stroke();
-            ctx2.beginPath();
-            ctx2.moveTo(x + w - 6, vy);
-            ctx2.lineTo(x + w - 4, vy);
-            ctx2.stroke();
-        }
-
-        // Horizontal server units
-        const uHeight = 24;
-        for (let u = 0; u < rack.units; u++) {
-            const uy = y + u * uHeight;
-            const fill = u % 2 === 0 ? 'rgba(99,143,255,0.02)' : 'rgba(99,143,255,0.01)';
-            ctx2.fillStyle = fill;
-            ctx2.fillRect(x + 12, uy + 1, w - 24, uHeight - 2);
-
-            // Unit separator line
-            ctx2.strokeStyle = 'rgba(99,143,255,0.04)';
-            ctx2.lineWidth = 0.5;
-            ctx2.beginPath();
-            ctx2.moveTo(x + 12, uy);
-            ctx2.lineTo(x + w - 12, uy);
-            ctx2.stroke();
-
-            // Draw LEDs for this unit
-            if (rack.leds[u]) {
-                for (const led of rack.leds[u]) {
-                    const blink = Math.sin(now * led.speed + led.phase) * 0.5 + 0.5;
-                    ctx2.beginPath();
-                    ctx2.arc(led.x, led.y, led.r * blink, 0, Math.PI * 2);
-                    ctx2.fillStyle = led.color;
-                    ctx2.globalAlpha = 0.15 + blink * 0.4;
-                    ctx2.fill();
-                    ctx2.globalAlpha = 1;
-                }
-            }
-        }
+    lctx.clearRect(0, 0, lc.width, lc.height);
+    for (const led of leds) {
+        const blink = Math.sin(now * led.speed + led.phase) * 0.5 + 0.5;
+        const alpha = 0.2 + blink * 0.5;
+        lctx.beginPath();
+        lctx.arc(led.x, led.y, led.r * (0.6 + blink * 0.4), 0, Math.PI * 2);
+        lctx.fillStyle = led.color;
+        lctx.globalAlpha = alpha;
+        lctx.fill();
+        // Glow
+        const grad = lctx.createRadialGradient(led.x, led.y, 0, led.x, led.y, led.r * 4);
+        grad.addColorStop(0, led.color);
+        grad.addColorStop(1, 'transparent');
+        lctx.fillStyle = grad;
+        lctx.globalAlpha = alpha * 0.3;
+        lctx.beginPath();
+        lctx.arc(led.x, led.y, led.r * 4, 0, Math.PI * 2);
+        lctx.fill();
     }
-
-    // Cables between racks
-    ctx2.strokeStyle = 'rgba(99,143,255,0.06)';
-    ctx2.lineWidth = 0.8;
-    ctx2.setLineDash([3, 6]);
-    for (let i = 0; i < racks.length; i++) {
-        for (let j = i + 1; j < racks.length; j++) {
-            const r1 = racks[i], r2 = racks[j];
-            const x1 = r1.x + r1.w, y1 = r1.y + r1.h * 0.5;
-            const x2 = r2.x, y2 = r2.y + r2.h * 0.6;
-            ctx2.beginPath();
-            ctx2.moveTo(x1, y1);
-            ctx2.quadraticCurveTo((x1 + x2) / 2, y1 - 30, x2, y2);
-            ctx2.stroke();
-        }
-    }
-    ctx2.setLineDash([]);
+    lctx.globalAlpha = 1;
+    requestAnimationFrame(drawLEDs);
 }
-
-function animateRacks() {
-    H2 = cav.height = document.body.scrollHeight;
-    ctx2.clearRect(0, 0, W2, H2);
-
-    // Very subtle data pulse in background
-    const gradient = ctx2.createRadialGradient(W2/2, 100, 0, W2/2, 100, 500);
-    gradient.addColorStop(0, 'rgba(99,143,255,0.04)');
-    gradient.addColorStop(1, 'rgba(99,143,255,0)');
-    ctx2.fillStyle = gradient;
-    ctx2.fillRect(0, 0, W2, H2);
-
-    // Draw racks at fixed positions updated for current height
-    racks[0].y = H2 * 0.15;
-    racks[1].y = H2 * 0.35;
-    racks[2].y = H2 * 0.2;
-    racks[3].y = H2 * 0.5;
-
-    drawRacks();
-    requestAnimationFrame(animateRacks);
-}
-
-animateRacks();
+drawLEDs();
 
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
