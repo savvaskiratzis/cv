@@ -3,381 +3,291 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Savvas Kiratzis — Systems Engineer, IT Infrastructure & Cloud Specialist" />
-    <title>Savvas Kiratzis · Systems Engineer</title>
+    <title>cv.md — Savvas Kiratzis</title>
+    <meta name="description" content="Savvas Kiratzis — Systems Engineer CV" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- ═══ CURSOR GLOW ═══ -->
-<div id="cursor-glow" aria-hidden="true"></div>
+<div class="vscode">
 
-<!-- ═══ FLOATING ICONS ═══ -->
-<div id="float-icons" aria-hidden="true">
-    <i class="fab fa-microsoft"></i><i class="fas fa-cloud"></i><i class="fas fa-server"></i>
-    <i class="fas fa-database"></i><i class="fas fa-shield-halved"></i><i class="fab fa-linux"></i>
-    <i class="fas fa-network-wired"></i><i class="fas fa-microchip"></i><i class="fab fa-aws"></i>
-    <i class="fas fa-cubes"></i><i class="fas fa-terminal"></i><i class="fas fa-code-branch"></i>
-</div>
-
-<div class="wrapper">
-
-    <!-- ═══ HERO ═══ -->
-    <header class="hero" id="top">
-        <div class="hero-bg-shapes" aria-hidden="true">
-            <div class="shape shape-1"></div><div class="shape shape-2"></div>
+    <!-- ═══ TITLE BAR ═══ -->
+    <header class="titlebar">
+        <div class="win-controls">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
         </div>
-        <div class="hero-content">
-            <div class="hero-badge" id="hero-badge">⚡ Systems Engineer</div>
-            <h1 class="hero-name">
-                <span class="line-1">Savvas</span>
-                <span class="line-2 gradient-text" id="typewriter"></span><span class="cursor-blink">|</span>
-            </h1>
-            <p class="hero-tagline" id="tagline">Infrastructure · Cloud · Virtualization · Automation</p>
-            <div class="hero-actions">
-                <a href="#experience" class="btn btn-primary"><span>Explore CV</span><i class="fas fa-arrow-right"></i></a>
-                <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i><span>Contact</span></a>
-            </div>
+        <div class="title-text">
+            <i class="fas fa-code"></i> Savvas Kiratzis — cv.md
         </div>
-        <div class="scroll-indicator"><span>Scroll</span><div class="scroll-line"></div></div>
+        <div class="title-right"></div>
     </header>
 
-    <!-- ═══ GRID ═══ -->
-    <div class="grid-container">
-
-        <!-- ═══ COL LEFT ═══ -->
-        <div class="col-left">
-
-            <div class="glass-card" id="contact">
-                <div class="card-label">About</div>
-                <h2 class="card-heading"><i class="fas fa-user-astronaut"></i> Profile</h2>
-                <p class="profile-text">
-                    Results-driven Systems Engineer with deep expertise in virtualization, cloud infrastructure (M365, Azure),
-                    hybrid architectures, and data center operations. Proven track record of delivering high-availability
-                    environments, zero-downtime migrations, and enterprise-grade backup solutions.
-                </p>
-                <div class="stats-row">
-                    <div class="stat-badge"><span class="stat-num" data-count="6">0</span><span class="stat-lbl">Years Exp.</span></div>
-                    <div class="stat-badge"><span class="stat-num" data-count="10">0</span><span class="stat-lbl">Platforms</span></div>
-                    <div class="stat-badge"><span class="stat-icon">∞</span><span class="stat-lbl">Uptime</span></div>
-                </div>
-            </div>
-
-            <div class="glass-card">
-                <div class="card-label">Get in touch</div>
-                <h2 class="card-heading"><i class="fas fa-address-card"></i> Contact</h2>
-                <ul class="contact-list">
-                    <li><i class="fas fa-map-marker-alt"></i><span>Krimeas 64, Glyfada 16562, Greece</span></li>
-                    <li><i class="fas fa-phone-alt"></i><span><a href="tel:+306989169303">+30 698 916 9303</a></span></li>
-                    <li><i class="fas fa-envelope"></i><a href="mailto:savvaskiratzis@gmail.com">savvaskiratzis@gmail.com</a></li>
-                    <li><i class="fab fa-linkedin-in"></i><a href="https://linkedin.com/in/savvas-kiratzis" target="_blank">savvas-kiratzis</a></li>
-                    <li><i class="fas fa-certificate"></i><a href="https://credly.com/users/savvas-kyratzis" target="_blank">Credly</a></li>
-                    <li><i class="fab fa-github"></i><a href="https://github.com/savvaskiratzis" target="_blank">savvaskiratzis</a></li>
-                </ul>
-            </div>
-
-            <div class="glass-card">
-                <div class="card-label">Tech stack</div>
-                <h2 class="card-heading"><i class="fas fa-microchip"></i> Core Skills</h2>
-                <div class="skill-list">
-                    <div class="skill-item"><span class="sk-name">vSphere</span><div class="sk-track"><div class="sk-fill" data-width="95"></div></div></div>
-                    <div class="skill-item"><span class="sk-name">Hyper‑V</span><div class="sk-track"><div class="sk-fill" data-width="90"></div></div></div>
-                    <div class="skill-item"><span class="sk-name">Proxmox VE</span><div class="sk-track"><div class="sk-fill" data-width="88"></div></div></div>
-                    <div class="skill-item"><span class="sk-name">M365 / Entra ID</span><div class="sk-track"><div class="sk-fill" data-width="92"></div></div></div>
-                    <div class="skill-item"><span class="sk-name">Azure (AZ‑104)</span><div class="sk-track"><div class="sk-fill" data-width="85"></div></div></div>
-                    <div class="skill-item"><span class="sk-name">Backup (Veeam/Acronis)</span><div class="sk-track"><div class="sk-fill" data-width="90"></div></div></div>
-                    <div class="skill-item"><span class="sk-name">Citrix DaaS</span><div class="sk-track"><div class="sk-fill" data-width="80"></div></div></div>
-                    <div class="skill-item"><span class="sk-name">Zabbix / Grafana</span><div class="sk-track"><div class="sk-fill" data-width="85"></div></div></div>
-                </div>
-            </div>
-
-            <div class="glass-card">
-                <div class="card-label">Credentials</div>
-                <h2 class="card-heading"><i class="fas fa-medal"></i> Certifications</h2>
-                <div class="cert-grid">
-                    <div class="cert-chip"><i class="fab fa-microsoft"></i><span>Azure Admin AZ‑104</span></div>
-                    <div class="cert-chip"><i class="fas fa-server"></i><span>Dell PowerEdge D‑PE‑OE‑01</span></div>
-                    <div class="cert-chip"><i class="fas fa-cogs"></i><span>ITIL® Foundation</span></div>
-                    <div class="cert-chip"><i class="fas fa-cloud"></i><span>Citrix CCA‑V</span></div>
-                    <div class="cert-chip"><i class="fas fa-code"></i><span>Web Design Specialist</span></div>
-                </div>
-            </div>
-
-            <div class="glass-card">
-                <div class="card-label">Details</div>
-                <h2 class="card-heading"><i class="fas fa-globe"></i> Personal Info</h2>
-                <ul class="info-grid">
-                    <li><span>Languages</span><span>Greek (native) · English B2</span></li>
-                    <li><span>Birth</span><span>12 Oct 1991</span></li>
-                    <li><span>Nationality</span><span>Greek</span></li>
-                    <li><span>Licenses</span><span>AM · A · B</span></li>
-                    <li><span>Military</span><span>✅ Fulfilled</span></li>
-                    <li><span>Volunteer</span><span>Municipality events · Seaside Race 2016‑18</span></li>
-                </ul>
-            </div>
-
+    <!-- ═══ TAB BAR ═══ -->
+    <div class="tabbar">
+        <div class="tab active">
+            <i class="fas fa-file-code"></i> cv.md
+            <span class="tab-close">×</span>
         </div>
-
-        <!-- ═══ COL RIGHT ═══ -->
-        <div class="col-right">
-
-            <div class="glass-card" id="experience">
-                <div class="card-label">Career</div>
-                <h2 class="card-heading"><i class="fas fa-briefcase"></i> Experience</h2>
-                <div class="timeline">
-
-                    <div class="tl-item">
-                        <div class="tl-marker current"><div class="pulse-ring"></div></div>
-                        <div class="tl-body">
-                            <div class="tl-head"><h3>Systems Engineer</h3><span class="tl-badge">Mar 2025 – Present</span></div>
-                            <p class="tl-org">Space Hellas — Ag. Paraskevi</p>
-                            <ul class="tl-dots">
-                                <li>vSphere · Hyper‑V · Proxmox VE</li>
-                                <li>On‑prem ↔ cloud &amp; cloud‑to‑cloud migrations</li>
-                                <li>M365 Global Admin (Exchange, SharePoint, Teams, Entra ID)</li>
-                                <li>Data center ops &amp; backup (Veeam, Acronis, Nakivo, Corso)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="tl-item">
-                        <div class="tl-marker"></div>
-                        <div class="tl-body">
-                            <div class="tl-head"><h3>Systems Engineer</h3><span class="tl-badge">Jul 2022 – Nov 2024</span></div>
-                            <p class="tl-org">Fermorite — Argyroupoli</p>
-                            <ul class="tl-dots">
-                                <li>Hyper‑V · Proxmox VE · XCP‑ng administration</li>
-                                <li>M365 Global Admin &amp; hybrid cloud migrations</li>
-                                <li>Citrix DaaS (Virtual Apps &amp; Desktops)</li>
-                                <li>Zabbix · Grafana · Wazuh (SIEM)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="tl-item">
-                        <div class="tl-marker"></div>
-                        <div class="tl-body">
-                            <div class="tl-head"><h3>IT Service Desk Engineer</h3><span class="tl-badge">Sep 2020 – Jun 2022</span></div>
-                            <p class="tl-org">OTE Group of Companies (HTO) — Marousi</p>
-                            <ul class="tl-dots">
-                                <li>Systems mgmt &amp; monitoring @ T‑Mobile Netherlands</li>
-                                <li>Incident mgmt for 15+ enterprise projects</li>
-                                <li>2nd Level M365 support · On‑prem AD → Azure AD migration</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="tl-item">
-                        <div class="tl-marker"></div>
-                        <div class="tl-body">
-                            <div class="tl-head"><h3>Programmer – Analyst</h3><span class="tl-badge">Oct 2019 – Jul 2020</span></div>
-                            <p class="tl-org">Ministry of Defence — Holargos</p>
-                            <ul class="tl-dots"><li>IT Helpdesk &amp; application support</li></ul>
-                        </div>
-                    </div>
-
-                    <div class="tl-item">
-                        <div class="tl-marker"></div>
-                        <div class="tl-body">
-                            <div class="tl-head"><h3>Help Desk Engineer</h3><span class="tl-badge">Oct 2015 – Aug 2019</span></div>
-                            <p class="tl-org">Municipality of Oropos</p>
-                            <ul class="tl-dots"><li>IT support · Accounting apps · Digital marketing</li></ul>
-                        </div>
-                    </div>
-
-                    <div class="tl-item">
-                        <div class="tl-marker"></div>
-                        <div class="tl-body">
-                            <div class="tl-head"><h3>Network Engineer (Intern)</h3><span class="tl-badge">Oct – Dec 2014</span></div>
-                            <p class="tl-org">OTE Group (HTO) — Kozani</p>
-                            <ul class="tl-dots"><li>Field wiring · Digital TV transition (DIGEA)</li></ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="glass-card">
-                <div class="card-label">Education</div>
-                <h2 class="card-heading"><i class="fas fa-graduation-cap"></i> Education</h2>
-                <div class="edu-list">
-                    <div class="edu-item">
-                        <div class="edu-icon"><i class="fas fa-university"></i></div>
-                        <div>
-                            <h3>Informatics &amp; Telecommunications Engineering <span class="badge-equiv">equiv. Master's</span></h3>
-                            <p class="edu-meta">University of Western Macedonia · 2021 · Grade: 6.83/10</p>
-                        </div>
-                    </div>
-                    <div class="edu-item">
-                        <div class="edu-icon"><i class="fas fa-school"></i></div>
-                        <div>
-                            <h3>High School Graduation</h3>
-                            <p class="edu-meta">High School of Schimatari · 2009 · Grade: 18/20</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glass-card">
-                <div class="card-label">Recognition</div>
-                <h2 class="card-heading"><i class="fas fa-trophy"></i> Awards, Courses &amp; Seminars</h2>
-                <div class="two-col">
-                    <div>
-                        <h4 class="mini-heading"><i class="fas fa-star"></i> Award</h4>
-                        <p class="award-line"><strong>e‑Twinning</strong> — First National Award<br/><em>"Antiqua Aqua" (Water Networks)</em></p>
-                        <h4 class="mini-heading" style="margin-top:16px"><i class="fas fa-book"></i> Courses</h4>
-                        <ul class="dot-list">
-                            <li>ITIL4 Foundation</li>
-                            <li>Microsoft Office Specialist 2019</li>
-                            <li>All Digital Summit: IoT, GDPR, Data Analysis, Security</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="mini-heading"><i class="fas fa-flask"></i> Seminars</h4>
-                        <ul class="dot-list">
-                            <li>MATLAB Presentation — UoWM</li>
-                            <li>Joomla e‑shops — UoWM</li>
-                            <li>Android &amp; Mobile Security — UoWM</li>
-                            <li>Security: Admin's Perspective — UoWM</li>
-                            <li>Energy Measurements — UoWM</li>
-                            <li>ECESCON 4 — Patras</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
+        <div class="tab disabled">
+            <i class="fas fa-terminal"></i> terminal
+            <span class="tab-close">×</span>
         </div>
     </div>
 
-    <footer class="footer">
-        <p>📄 Recommendation letters available · Military fulfilled</p>
-        <div class="footer-actions">
-            <a href="#" onclick="window.print();return false"><i class="fas fa-print"></i> Save as PDF</a>
-            <a href="https://github.com/savvaskiratzis/cv" target="_blank"><i class="fab fa-github"></i> Source</a>
-            <a href="#top"><i class="fas fa-arrow-up"></i> Top</a>
+    <!-- ═══ MAIN AREA ═══ -->
+    <div class="workspace">
+
+        <!-- ═══ SIDEBAR ═══ -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-folder-open"></i> <span>EXPLORER</span>
+            </div>
+            <div class="folder-tree">
+                <div class="tree-item dir open">
+                    <i class="fas fa-folder-open"></i> savvas-cv
+                </div>
+                <div class="tree-item file active">
+                    <i class="fas fa-file-code"></i> cv.md
+                </div>
+                <div class="tree-item dir">
+                    <i class="fas fa-folder"></i> certs
+                </div>
+                <div class="tree-item file" style="padding-left:72px">
+                    <i class="fas fa-file-pdf"></i> az-104.pdf
+                </div>
+                <div class="tree-item file" style="padding-left:72px">
+                    <i class="fas fa-file-pdf"></i> itil.pdf
+                </div>
+                <div class="tree-item file" style="padding-left:72px">
+                    <i class="fas fa-file-pdf"></i> dell-poweredge.pdf
+                </div>
+                <div class="tree-item dir">
+                    <i class="fas fa-folder"></i> rec-letters
+                </div>
+                <div class="tree-item file" style="padding-left:72px">
+                    <i class="fas fa-file-pdf"></i> request-only.txt
+                </div>
+                <div class="tree-item file">
+                    <i class="fas fa-file-alt"></i> README.md
+                </div>
+                <div class="tree-item file">
+                    <i class="fas fa-cog"></i> .vscode/settings.json
+                </div>
+            </div>
+        </aside>
+
+        <!-- ═══ EDITOR ═══ -->
+        <main class="editor">
+
+            <!-- Line numbers gutter -->
+            <div class="gutter" id="gutter"></div>
+
+            <!-- Code content -->
+            <div class="code-content">
+
+                <!-- Frontmatter -->
+                <div class="code-line"><span class="ln" data-n="1"></span><span class="c">---</span></div>
+                <div class="code-line"><span class="ln" data-n="2"></span><span class="y">name</span><span>:</span> <span class="s">Savvas Kiratzis</span></div>
+                <div class="code-line"><span class="ln" data-n="3"></span><span class="y">title</span><span>:</span> <span class="s">Systems Engineer</span></div>
+                <div class="code-line"><span class="ln" data-n="4"></span><span class="y">location</span><span>:</span> <span class="s">Glyfada, Greece</span></div>
+                <div class="code-line"><span class="ln" data-n="5"></span><span class="y">email</span><span>:</span> <span class="s">savvaskiratzis@gmail.com</span></div>
+                <div class="code-line"><span class="ln" data-n="6"></span><span class="y">phone</span><span>:</span> <span class="s">+30 698 916 9303</span></div>
+                <div class="code-line"><span class="ln" data-n="7"></span><span class="y">status</span><span>:</span> <span class="s">open to opportunities</span></div>
+                <div class="code-line"><span class="ln" data-n="8"></span><span class="c">---</span></div>
+                <div class="code-line"><span class="ln" data-n="9"></span><span class="c">/* Systems Engineer — Infrastructure, Cloud &amp; Virtualization */</span></div>
+                <div class="code-line gap"><span class="ln" data-n="10"></span></div>
+
+                <!-- Profile -->
+                <div class="code-line"><span class="ln" data-n="11"></span><span class="k">##</span> <span class="f">Profile</span></div>
+                <div class="code-line"><span class="ln" data-n="12"></span><span class="c">// Results-driven Systems Engineer with deep expertise in</span></div>
+                <div class="code-line"><span class="ln" data-n="13"></span><span class="c">// virtualization, cloud infrastructure, hybrid architectures,</span></div>
+                <div class="code-line"><span class="ln" data-n="14"></span><span class="c">// and data center operations. Proven track record in high-</span></div>
+                <div class="code-line"><span class="ln" data-n="15"></span><span class="c">// availability environments and zero-downtime migrations.</span></div>
+                <div class="code-line gap"><span class="ln" data-n="16"></span></div>
+                <div class="code-line"><span class="ln" data-n="17"></span><span class="k">const</span> profile <span class="op">=</span> {{</div>
+                <div class="code-line"><span class="ln" data-n="18"></span>  <span class="y">focus</span>: [<span class="s">'Cloud Infrastructure'</span>, <span class="s">'Virtualization'</span>, <span class="s">'Automation'</span>],</div>
+                <div class="code-line"><span class="ln" data-n="19"></span>  <span class="y">experience</span>: <span class="n">6</span>+ <span class="c">// years</span></div>
+                <div class="code-line"><span class="ln" data-n="20"></span>}};</div>
+                <div class="code-line gap"><span class="ln" data-n="21"></span></div>
+
+                <!-- Work Experience -->
+                <div class="code-line"><span class="ln" data-n="22"></span><span class="k">##</span> <span class="f">Work Experience</span></div>
+                <div class="code-line gap"><span class="ln" data-n="23"></span></div>
+                <div class="code-line"><span class="ln" data-n="24"></span><span class="k">function</span> <span class="nf">spaceHellas</span>() {{</div>
+                <div class="code-line"><span class="ln" data-n="25"></span>  <span class="c">// Systems Engineer — Mar 2025 → Present</span></div>
+                <div class="code-line"><span class="ln" data-n="26"></span>  <span class="k">return</span> [</div>
+                <div class="code-line"><span class="ln" data-n="27"></span>    <span class="s">'vSphere, Hyper-V, Proxmox VE administration'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="28"></span>    <span class="s">'On-prem ↔ cloud &amp; cloud-to-cloud migrations'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="29"></span>    <span class="s">'M365 Global Admin (Exchange, SharePoint, Teams, Entra ID)'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="30"></span>    <span class="s">'Data center ops, Backup (Veeam, Acronis, Nakivo, Corso)'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="31"></span>  ];</div>
+                <div class="code-line"><span class="ln" data-n="32"></span>}}</div>
+                <div class="code-line gap"><span class="ln" data-n="33"></span></div>
+                <div class="code-line"><span class="ln" data-n="34"></span><span class="k">function</span> <span class="nf">fermorite</span>() {{</div>
+                <div class="code-line"><span class="ln" data-n="35"></span>  <span class="c">// Systems Engineer — Jul 2022 → Nov 2024</span></div>
+                <div class="code-line"><span class="ln" data-n="36"></span>  <span class="k">return</span> [</div>
+                <div class="code-line"><span class="ln" data-n="37"></span>    <span class="s">'Hyper-V, Proxmox VE, XCP-ng administration'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="38"></span>    <span class="s">'M365 Global Admin &amp; hybrid cloud migrations'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="39"></span>    <span class="s">'Citrix DaaS (Virtual Apps &amp; Desktops)'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="40"></span>    <span class="s">'Monitoring (Zabbix, Grafana) / SIEM (Wazuh)'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="41"></span>  ];</div>
+                <div class="code-line"><span class="ln" data-n="42"></span>}}</div>
+                <div class="code-line gap"><span class="ln" data-n="43"></span></div>
+                <div class="code-line"><span class="ln" data-n="44"></span><span class="k">function</span> <span class="nf">oteServiceDesk</span>() {{</div>
+                <div class="code-line"><span class="ln" data-n="45"></span>  <span class="c">// IT Service Desk Engineer — Sep 2020 → Jun 2022</span></div>
+                <div class="code-line"><span class="ln" data-n="46"></span>  <span class="k">return</span> [</div>
+                <div class="code-line"><span class="ln" data-n="47"></span>    <span class="s">'Systems mgmt @ T-Mobile Netherlands'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="48"></span>    <span class="s">'Incident mgmt for 15+ enterprise projects'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="49"></span>    <span class="s">'2nd Level M365 support · AD → Azure AD migration'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="50"></span>  ];</div>
+                <div class="code-line"><span class="ln" data-n="51"></span>}}</div>
+                <div class="code-line gap"><span class="ln" data-n="52"></span></div>
+                <div class="code-line"><span class="ln" data-n="53"></span><span class="k">function</span> <span class="nf">ministryDefence</span>() {{</div>
+                <div class="code-line"><span class="ln" data-n="54"></span>  <span class="c">// Programmer–Analyst — Oct 2019 → Jul 2020 (Military)</span></div>
+                <div class="code-line"><span class="ln" data-n="55"></span>  <span class="k">return</span> [<span class="s">'IT Helpdesk · Application support'</span>];</div>
+                <div class="code-line"><span class="ln" data-n="56"></span>}}</div>
+                <div class="code-line gap"><span class="ln" data-n="57"></span></div>
+                <div class="code-line"><span class="ln" data-n="58"></span><span class="k">function</span> <span class="nf">oroposHelpdesk</span>() {{</div>
+                <div class="code-line"><span class="ln" data-n="59"></span>  <span class="c">// Help Desk Engineer — Oct 2015 → Aug 2019</span></div>
+                <div class="code-line"><span class="ln" data-n="60"></span>  <span class="k">return</span> [<span class="s">'IT support · Accounting apps · Digital marketing'</span>];</div>
+                <div class="code-line"><span class="ln" data-n="61"></span>}}</div>
+                <div class="code-line gap"><span class="ln" data-n="62"></span></div>
+                <div class="code-line"><span class="ln" data-n="63"></span><span class="k">function</span> <span class="nf">oteIntern</span>() {{</div>
+                <div class="code-line"><span class="ln" data-n="64"></span>  <span class="c">// Network Engineer Intern — Oct → Dec 2014</span></div>
+                <div class="code-line"><span class="ln" data-n="65"></span>  <span class="k">return</span> [<span class="s">'Field wiring · Digital TV transition (DIGEA)'</span>];</div>
+                <div class="code-line"><span class="ln" data-n="66"></span>}}</div>
+                <div class="code-line gap"><span class="ln" data-n="67"></span></div>
+                <div class="code-line"><span class="ln" data-n="68"></span><span class="k">const</span> experience <span class="op">=</span> [</div>
+                <div class="code-line"><span class="ln" data-n="69"></span>  spaceHellas(), fermorite(), oteServiceDesk(),</div>
+                <div class="code-line"><span class="ln" data-n="70"></span>  ministryDefence(), oroposHelpdesk(), oteIntern(),</div>
+                <div class="code-line"><span class="ln" data-n="71"></span>];</div>
+                <div class="code-line gap"><span class="ln" data-n="72"></span></div>
+
+                <!-- Education -->
+                <div class="code-line"><span class="ln" data-n="73"></span><span class="k">##</span> <span class="f">Education</span></div>
+                <div class="code-line"><span class="ln" data-n="74"></span><span class="k">class</span> <span class="nf">Education</span> {{</div>
+                <div class="code-line"><span class="ln" data-n="75"></span>  <span class="nf">constructor</span>() {{</div>
+                <div class="code-line"><span class="ln" data-n="76"></span>    <span class="sx">this</span>.degrees <span class="op">=</span> [</div>
+                <div class="code-line"><span class="ln" data-n="77"></span>      {{</div>
+                <div class="code-line"><span class="ln" data-n="78"></span>        <span class="y">degree</span>: <span class="s">'Informatics &amp; Telecomms Engineering'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="79"></span>        <span class="y">school</span>: <span class="s">'University of Western Macedonia'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="80"></span>        <span class="y">year</span>: <span class="s">'2021'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="81"></span>        <span class="y">equiv</span>: <span class="kc">true</span>, <span class="c">// equivalent to Master's</span></div>
+                <div class="code-line"><span class="ln" data-n="82"></span>        <span class="y">grade</span>: <span class="n">6.83</span>,</div>
+                <div class="code-line"><span class="ln" data-n="83"></span>      {{}},</div>
+                <div class="code-line"><span class="ln" data-n="84"></span>      {{</div>
+                <div class="code-line"><span class="ln" data-n="85"></span>        <span class="y">degree</span>: <span class="s">'High School Graduation'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="86"></span>        <span class="y">school</span>: <span class="s">'High School of Schimatari'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="87"></span>        <span class="y">year</span>: <span class="s">'2009'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="88"></span>        <span class="y">grade</span>: <span class="n">18</span>, <span class="c">// out of 20</span></div>
+                <div class="code-line"><span class="ln" data-n="89"></span>      {{}},</div>
+                <div class="code-line"><span class="ln" data-n="90"></span>    ];</div>
+                <div class="code-line"><span class="ln" data-n="91"></span>  }}</div>
+                <div class="code-line"><span class="ln" data-n="92"></span>}}</div>
+                <div class="code-line gap"><span class="ln" data-n="93"></span></div>
+
+                <!-- Skills -->
+                <div class="code-line"><span class="ln" data-n="94"></span><span class="k">##</span> <span class="f">Core Skills</span></div>
+                <div class="code-line"><span class="ln" data-n="95"></span><span class="k">let</span> skills <span class="op">=</span> {{</div>
+                <div class="code-line"><span class="ln" data-n="96"></span>  <span class="y">virtualization</span>: [<span class="s">'vSphere'</span>, <span class="s">'Hyper-V'</span>, <span class="s">'Proxmox VE'</span>, <span class="s">'XCP-ng'</span>],</div>
+                <div class="code-line"><span class="ln" data-n="97"></span>  <span class="y">cloud</span>: [<span class="s">'M365'</span>, <span class="s">'Entra ID'</span>, <span class="s">'Exchange Online'</span>, <span class="s">'SharePoint'</span>, <span class="s">'Azure'</span>],</div>
+                <div class="code-line"><span class="ln" data-n="98"></span>  <span class="y">monitoring</span>: [<span class="s">'Zabbix'</span>, <span class="s">'Grafana'</span>, <span class="s">'Wazuh'</span>],</div>
+                <div class="code-line"><span class="ln" data-n="99"></span>  <span class="y">backup</span>: [<span class="s">'Veeam'</span>, <span class="s">'Acronis'</span>, <span class="s">'Nakivo'</span>, <span class="s">'Corso'</span>],</div>
+                <div class="code-line"><span class="ln" data-n="100"></span>  <span class="y">dcim</span>: [<span class="s">'Data Center Ops'</span>, <span class="s">'Racking'</span>, <span class="s">'HW/SW Upgrades'</span>],</div>
+                <div class="code-line"><span class="ln" data-n="101"></span>  <span class="y">citrix</span>: [<span class="s">'DaaS'</span>, <span class="s">'Virtual Apps &amp; Desktops'</span>],</div>
+                <div class="code-line"><span class="ln" data-n="102"></span>}};</div>
+                <div class="code-line gap"><span class="ln" data-n="103"></span></div>
+
+                <!-- Certs -->
+                <div class="code-line"><span class="ln" data-n="104"></span><span class="k">##</span> <span class="f">Certifications</span></div>
+                <div class="code-line"><span class="ln" data-n="105"></span><span class="k">const</span> certs <span class="op">=</span> [</div>
+                <div class="code-line"><span class="ln" data-n="106"></span>  <span class="s">'Microsoft Azure Administrator (AZ-104)'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="107"></span>  <span class="s">'Dell PowerEdge Operate v2.0 (D-PE-OE-01)'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="108"></span>  <span class="s">'ITIL® Foundation Certificate in IT Service Mgmt'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="109"></span>  <span class="s">'Citrix Certified Associate – Virtualization (CCA-V)'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="110"></span>  <span class="s">'Ειδικός Σχεδιασμού Ιστοσελίδων &amp; Εφαρμογών'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="111"></span>];</div>
+                <div class="code-line gap"><span class="ln" data-n="112"></span></div>
+
+                <!-- Languages & Info -->
+                <div class="code-line"><span class="ln" data-n="113"></span><span class="k">##</span> <span class="f">Details</span></div>
+                <div class="code-line"><span class="ln" data-n="114"></span><span class="k">const</span> info <span class="op">=</span> {{</div>
+                <div class="code-line"><span class="ln" data-n="115"></span>  <span class="y">languages</span>: [<span class="s">'Greek (native)'</span>, <span class="s">'English (B2)'</span>],</div>
+                <div class="code-line"><span class="ln" data-n="116"></span>  <span class="y">birth</span>: <span class="s">'12 Oct 1991'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="117"></span>  <span class="y">nationality</span>: <span class="s">'Greek'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="118"></span>  <span class="y">drivingLicenses</span>: [<span class="s">'AM'</span>, <span class="s">'A'</span>, <span class="s">'B'</span>],</div>
+                <div class="code-line"><span class="ln" data-n="119"></span>  <span class="y">militaryService</span>: <span class="kc">true</span>, <span class="c">// fulfilled</span></div>
+                <div class="code-line"><span class="ln" data-n="120"></span>  <span class="y">recommendationLetters</span>: <span class="s">'available on request'</span>,</div>
+                <div class="code-line"><span class="ln" data-n="121"></span>}};</div>
+                <div class="code-line gap"><span class="ln" data-n="122"></span></div>
+                <div class="code-line"><span class="ln" data-n="123"></span><span class="c">// === EOF ===</span></div>
+
+                <!-- Bottom spacer for scrolling -->
+                <div class="code-line"><span class="ln" data-n="124"></span></div>
+                <div class="code-line"><span class="ln" data-n="125"></span><span class="c">// 📄 Recommendation letters available upon request</span></div>
+                <div class="code-line"><span class="ln" data-n="126"></span><span class="c">// 🔗 LinkedIn: linkedin.com/in/savvas-kiratzis</span></div>
+                <div class="code-line"><span class="ln" data-n="127"></span><span class="c">// 🏆 e-Twinning First National Award — "Antiqua Aqua"</span></div>
+                <div class="code-line"><span class="ln" data-n="128"></span><span class="c">// 🎓 Seminars: MATLAB, Joomla, Android Security, ECESCON 4</span></div>
+
+            </div><!-- /code-content -->
+        </main>
+
+    </div><!-- /workspace -->
+
+    <!-- ═══ STATUS BAR ═══ -->
+    <footer class="statusbar">
+        <div class="sb-left">
+            <span><i class="fas fa-check-circle" style="color:#4ade80"></i> READY</span>
+            <span><i class="fas fa-code-branch"></i> main</span>
+            <span><i class="fas fa-wifi"></i> live @ savvaskiratzis.github.io/cv</span>
+        </div>
+        <div class="sb-right">
+            <span><i class="fas fa-file-code"></i> UTF-8</span>
+            <span>Spaces: 2</span>
+            <span><i class="fas fa-circle" style="color:#4ade80;font-size:8px"></i> Prettier</span>
+            <span id="clock"><i class="far fa-clock"></i> <span id="time">--:--</span></span>
         </div>
     </footer>
-</div>
 
-<button class="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">
-    <i class="fas fa-arrow-up"></i>
-</button>
+</div><!-- /vscode -->
 
+<!-- ═══ JS ═══ -->
 <script>
-// ─── CONFIG ───
-const TITLE = 'Kiratzis';          // typewriter text
+// ── Live clock in statusbar ──
+function updateClock() {
+    const now = new Date();
+    const t = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('time').textContent = t;
+}
+updateClock();
+setInterval(updateClock, 10000);
 
-// ─── 1. TYPEWRITER ───
-(function typewriter() {
-    const el = document.getElementById('typewriter');
-    let i = 0, dir = 1;
-    function tick() {
-        el.textContent = TITLE.slice(0, i);
-        i += dir;
-        if (i > TITLE.length) { setTimeout(() => { dir = -1; tick(); }, 1800); return; }
-        if (i < 0) { setTimeout(() => { dir = 1; tick(); }, 400); return; }
-        setTimeout(tick, dir > 0 ? 100 : 40);
-    }
-    setTimeout(tick, 600);
-})();
-
-// ─── 2. CURSOR GLOW ───
-const glow = document.getElementById('cursor-glow');
-document.addEventListener('mousemove', e => {
-    glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+// ── Line numbers via JS ──
+document.querySelectorAll('.ln').forEach(el => {
+    const n = el.dataset.n;
+    if (n) el.textContent = n;
 });
 
-// ─── 3. 3D TILT ON GLASS CARDS ───
-document.querySelectorAll('.glass-card, .hero-badge').forEach(card => {
-    card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        const x = e.clientX - r.left;
-        const y = e.clientY - r.top;
-        const cx = r.width / 2, cy = r.height / 2;
-        const rotateX = ((y - cy) / cy) * -8;
-        const rotateY = ((x - cx) / cx) * 8;
-        card.style.setProperty('--rx', rotateX + 'deg');
-        card.style.setProperty('--ry', rotateY + 'deg');
-    });
-    card.addEventListener('mouseleave', () => {
-        card.style.setProperty('--rx', '0deg');
-        card.style.setProperty('--ry', '0deg');
+// ── Active tab hover effect ──
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        if (!tab.classList.contains('disabled')) tab.classList.add('active');
     });
 });
 
-// ─── 4. SCROLL REVEAL (IntersectionObserver) ───
-const appearOpts = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
-const appearObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            e.target.classList.add('revealed');
-            appearObserver.unobserve(e.target);
-        }
-    });
-}, appearOpts);
-
-document.querySelectorAll('.glass-card, .tl-item, .edu-item').forEach(el => {
-    el.classList.add('will-reveal');
-    appearObserver.observe(el);
-});
-
-// ─── 5. ANIMATED COUNTERS ───
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            const el = e.target;
-            const target = parseInt(el.dataset.count);
-            if (isNaN(target)) return;
-            let current = 0;
-            const step = Math.ceil(target / 30);
-            const timer = setInterval(() => {
-                current += step;
-                if (current >= target) { current = target; clearInterval(timer); }
-                el.textContent = current;
-            }, 50);
-            counterObserver.unobserve(el);
-        }
-    });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-num[data-count]').forEach(el => counterObserver.observe(el));
-
-// ─── 6. SKILL BAR FILL ON SCROLL ───
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            const fill = e.target;
-            fill.style.width = fill.dataset.width + '%';
-            skillObserver.unobserve(fill);
-        }
-    });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('.sk-fill').forEach(el => skillObserver.observe(el));
-
-// ─── 7. FLOATING ICONS ───
-document.querySelectorAll('#float-icons i').forEach((icon, i) => {
-    const x = 5 + Math.random() * 90;
-    const y = 5 + Math.random() * 90;
-    const dur = 12 + Math.random() * 18;
-    const delay = Math.random() * 10;
-    icon.style.cssText = `
-        position:fixed; left:${x}%; top:${y}%;
-        font-size:${14 + Math.random() * 18}px;
-        color:rgba(99,143,255,${0.03 + Math.random() * 0.06});
-        pointer-events:none; z-index:0;
-        animation: floatIcon ${dur}s ease-in-out ${delay}s infinite;
-    `;
-});
-
-// ─── 8. SCROLL TOP BUTTON ───
-window.addEventListener('scroll', () => {
-    document.querySelector('.btn-top').classList.toggle('visible', window.scrollY > 500);
-});
+// ── Terminal blink effect on cursor ──
+setInterval(() => {
+    const cursor = document.querySelector('.cursor-blink');
+    if (cursor) cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+}, 530);
 </script>
+
 </body>
 </html>
