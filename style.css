@@ -160,6 +160,30 @@ header {
 .footer-note a { color: var(--text-muted); }
 .footer-note a:hover { color: var(--accent); }
 
+/* DOWNLOAD BUTTON */
+.btn-dl {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 4px 20px rgba(99,143,255,0.25);
+}
+.btn-dl:hover {
+    background: #4a7be8;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(99,143,255,0.35);
+    text-decoration: none;
+}
+.btn-dl i { font-size: 1.1rem; }
+
 /* RESPONSIVE */
 @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } .name { font-size: 2rem; } }
 @media (max-width: 500px) { .page { padding: 16px 10px 30px; } .card { padding: 15px 16px; } .exp-head { flex-direction: column; gap: 3px; } .exp-date { align-self: flex-start; } .two-col { grid-template-columns: 1fr; } }
