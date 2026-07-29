@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<canvas id="net-canvas"></canvas>
+<canvas id="rack-canvas"></canvas>
 
 <div class="page">
 
@@ -127,148 +127,164 @@
 </div>
 
 <script>
-// ═══ NETWORK TOPOLOGY — BOLD & VISIBLE ═══
-const canvas = document.getElementById('net-canvas');
-const ctx = canvas.getContext('2d');
-let W, H, nodes = [], edges = [];
-const NODE_COUNT = 28;
-let time = 0;
+// ═══ SERVER RACK CANVAS ═══
+const cav = document.getElementById('rack-canvas');
+const ctx2 = cav.getContext('2d');
+let W2, H2;
 
-function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = document.body.scrollHeight;
+function resizeCanvas() {
+    W2 = cav.width = window.innerWidth;
+    H2 = cav.height = document.body.scrollHeight;
 }
-resize();
-window.addEventListener('resize', resize);
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
-class Node {
-    constructor() {
-        this.x = Math.random() * W;
-        this.y = Math.random() * H;
-        this.vx = (Math.random() - 0.5) * 0.15;
-        this.vy = (Math.random() - 0.5) * 0.15;
-        this.r = 4 + Math.random() * 5;
-        this.labels = ['SW','RT','SRV','FW','AP','DB','BKP','CL','EDGE','CORE','SAN','LB','DNS','VPN','GW','HCI','NAS','WLC','SDN','IDS','IPS','PROXY','RTR','HUB','BRIDGE','NODE','RACK','HOST'];
-        this.label = this.labels[Math.floor(Math.random() * this.labels.length)];
-        this.pulsePhase = Math.random() * Math.PI * 2;
-    }
-    update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 20 || this.x > W - 20) this.vx *= -1;
-        if (this.y < 20 || this.y > H - 20) this.vy *= -1;
-    }
-    draw() {
-        // Outer glow
-        const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 5);
-        grad.addColorStop(0, 'rgba(99,143,255,0.08)');
-        grad.addColorStop(1, 'rgba(99,143,255,0)');
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r * 5, 0, Math.PI * 2);
-        ctx.fill();
+const serverLeds = [];
 
-        // Core
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(99,143,255,0.25)';
-        ctx.fill();
-        ctx.strokeStyle = 'rgba(99,143,255,0.5)';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        // Label
-        ctx.fillStyle = 'rgba(99,143,255,0.5)';
-        ctx.font = '7px "Inter", sans-serif';
-        ctx.fillText(this.label, this.x + this.r + 4, this.y + 3);
+function makeRack(cx, cy, w, h, label) {
+    const uHeight = 24; // rack unit height
+    const units = Math.floor(h / uHeight);
+    const rack = { x: cx - w/2, y: cy - h/2, w, h, units, label, leds: [] };
+    for (let u = 0; u < units; u++) {
+        const uy = rack.y + u * uHeight;
+        // Each unit: border, maybe some LEDs
+        const ledCount = 2 + Math.floor(Math.random() * 4);
+        const leds = [];
+        for (let i = 0; i < ledCount; i++) {
+            leds.push({
+                x: rack.x + 10 + Math.random() * (w - 40),
+                y: uy + uHeight/2,
+                r: 1.5 + Math.random() * 2,
+                phase: Math.random() * Math.PI * 2,
+                speed: 0.5 + Math.random() * 2,
+                color: ['#4ade80','#60a5fa','#fbbf24','#f472b6','#34d399'][Math.floor(Math.random() * 5)]
+            });
+            serverLeds.push(leds[leds.length - 1]);
+        }
+        rack.leds.push(leds);
     }
+    return rack;
 }
 
-function init() {
-    nodes = [];
-    edges = [];
-    for (let i = 0; i < NODE_COUNT; i++) nodes.push(new Node());
+const racks = [];
+// Place 3 racks evenly across the width
+const rackW = 80, rackH = 400;
+racks.push(makeRack(W2 * 0.08, document.body.scrollHeight * 0.3, rackW, rackH, 'RACK-01'));
+racks.push(makeRack(W2 * 0.15, document.body.scrollHeight * 0.55, rackW, rackH * 0.8, 'RACK-02'));
+racks.push(makeRack(W2 * 0.92, document.body.scrollHeight * 0.35, rackW, rackH * 1.1, 'RACK-03'));
+racks.push(makeRack(W2 * 0.85, document.body.scrollHeight * 0.65, rackW, rackH * 0.7, 'RACK-04'));
 
-    // Smart edges: connect nearby nodes
-    for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-            const dx = nodes[i].x - nodes[j].x;
-            const dy = nodes[i].y - nodes[j].y;
-            const d = Math.sqrt(dx * dx + dy * dy);
-            // Connect with probability based on distance
-            const prob = Math.max(0, 1 - d / 350);
-            if (Math.random() < prob * 0.6) {
-                edges.push({ a: i, b: j });
+function drawRacks() {
+    const now = Date.now() / 1000;
+
+    for (const rack of racks) {
+        const { x, y, w, h, label } = rack;
+
+        // Rack frame
+        ctx2.strokeStyle = 'rgba(99,143,255,0.12)';
+        ctx2.lineWidth = 1.5;
+        ctx2.strokeRect(x, y, w, h);
+
+        // Rack label
+        ctx2.fillStyle = 'rgba(99,143,255,0.1)';
+        ctx2.font = '6px Inter, sans-serif';
+        ctx2.fillText(label, x + 4, y - 4);
+
+        // Mounting rails
+        ctx2.strokeStyle = 'rgba(99,143,255,0.06)';
+        ctx2.lineWidth = 1;
+        ctx2.beginPath();
+        ctx2.moveTo(x + 10, y);
+        ctx2.lineTo(x + 10, y + h);
+        ctx2.moveTo(x + w - 10, y);
+        ctx2.lineTo(x + w - 10, y + h);
+        ctx2.stroke();
+
+        // Vertical vent lines on sides
+        for (let vy = y + 10; vy < y + h - 10; vy += 12) {
+            ctx2.strokeStyle = `rgba(99,143,255,0.03)`;
+            ctx2.lineWidth = 0.5;
+            ctx2.beginPath();
+            ctx2.moveTo(x + 4, vy);
+            ctx2.lineTo(x + 6, vy);
+            ctx2.stroke();
+            ctx2.beginPath();
+            ctx2.moveTo(x + w - 6, vy);
+            ctx2.lineTo(x + w - 4, vy);
+            ctx2.stroke();
+        }
+
+        // Horizontal server units
+        const uHeight = 24;
+        for (let u = 0; u < rack.units; u++) {
+            const uy = y + u * uHeight;
+            const fill = u % 2 === 0 ? 'rgba(99,143,255,0.02)' : 'rgba(99,143,255,0.01)';
+            ctx2.fillStyle = fill;
+            ctx2.fillRect(x + 12, uy + 1, w - 24, uHeight - 2);
+
+            // Unit separator line
+            ctx2.strokeStyle = 'rgba(99,143,255,0.04)';
+            ctx2.lineWidth = 0.5;
+            ctx2.beginPath();
+            ctx2.moveTo(x + 12, uy);
+            ctx2.lineTo(x + w - 12, uy);
+            ctx2.stroke();
+
+            // Draw LEDs for this unit
+            if (rack.leds[u]) {
+                for (const led of rack.leds[u]) {
+                    const blink = Math.sin(now * led.speed + led.phase) * 0.5 + 0.5;
+                    ctx2.beginPath();
+                    ctx2.arc(led.x, led.y, led.r * blink, 0, Math.PI * 2);
+                    ctx2.fillStyle = led.color;
+                    ctx2.globalAlpha = 0.15 + blink * 0.4;
+                    ctx2.fill();
+                    ctx2.globalAlpha = 1;
+                }
             }
         }
     }
-}
-init();
 
-// Redraw edges when window resizes
-window.addEventListener('resize', () => {
-    setTimeout(() => { canvas.height = document.body.scrollHeight; init(); }, 300);
-});
-
-function drawEdges() {
-    for (const e of edges) {
-        const a = nodes[e.a];
-        const b = nodes[e.b];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist > 350) continue;
-
-        const alpha = 0.15 * (1 - dist / 350);
-        ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = `rgba(99,143,255,${alpha})`;
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-
-        // Data pulse
-        const speed = 0.0008;
-        let t = (Date.now() * speed + e.a) % 1;
-        const px = a.x + (b.x - a.x) * t;
-        const py = a.y + (b.y - a.y) * t;
-        ctx.beginPath();
-        ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(99,143,255,0.5)';
-        ctx.fill();
-
-        // Second pulse (offset)
-        t = (Date.now() * speed + e.a + 0.5) % 1;
-        const px2 = a.x + (b.x - a.x) * t;
-        const py2 = a.y + (b.y - a.y) * t;
-        ctx.beginPath();
-        ctx.arc(px2, py2, 1.8, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(99,143,255,0.25)';
-        ctx.fill();
+    // Cables between racks
+    ctx2.strokeStyle = 'rgba(99,143,255,0.06)';
+    ctx2.lineWidth = 0.8;
+    ctx2.setLineDash([3, 6]);
+    for (let i = 0; i < racks.length; i++) {
+        for (let j = i + 1; j < racks.length; j++) {
+            const r1 = racks[i], r2 = racks[j];
+            const x1 = r1.x + r1.w, y1 = r1.y + r1.h * 0.5;
+            const x2 = r2.x, y2 = r2.y + r2.h * 0.6;
+            ctx2.beginPath();
+            ctx2.moveTo(x1, y1);
+            ctx2.quadraticCurveTo((x1 + x2) / 2, y1 - 30, x2, y2);
+            ctx2.stroke();
+        }
     }
+    ctx2.setLineDash([]);
 }
 
-function animate() {
-    H = canvas.height = document.body.scrollHeight;
-    ctx.clearRect(0, 0, W, H);
+function animateRacks() {
+    H2 = cav.height = document.body.scrollHeight;
+    ctx2.clearRect(0, 0, W2, H2);
 
-    // Subtle background grid
-    ctx.strokeStyle = 'rgba(99,143,255,0.03)';
-    ctx.lineWidth = 0.5;
-    const gridSize = 40;
-    for (let x = 0; x < W; x += gridSize) {
-        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
-    }
-    for (let y = 0; y < H; y += gridSize) {
-        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
-    }
+    // Very subtle data pulse in background
+    const gradient = ctx2.createRadialGradient(W2/2, 100, 0, W2/2, 100, 500);
+    gradient.addColorStop(0, 'rgba(99,143,255,0.04)');
+    gradient.addColorStop(1, 'rgba(99,143,255,0)');
+    ctx2.fillStyle = gradient;
+    ctx2.fillRect(0, 0, W2, H2);
 
-    drawEdges();
-    nodes.forEach(n => { n.update(); n.draw(); });
+    // Draw racks at fixed positions updated for current height
+    racks[0].y = H2 * 0.15;
+    racks[1].y = H2 * 0.35;
+    racks[2].y = H2 * 0.2;
+    racks[3].y = H2 * 0.5;
 
-    requestAnimationFrame(animate);
+    drawRacks();
+    requestAnimationFrame(animateRacks);
 }
-animate();
+
+animateRacks();
 
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
